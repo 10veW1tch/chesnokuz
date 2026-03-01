@@ -225,6 +225,24 @@ class Like(Base):
         return f"Like({self.id})"
 
 
+class UserSessionToken(Base):
+    __tablename__ = "user_session_tokens"
+
+    id: Mapped[int] = mapped_column(
+        BigInteger, primary_key=True, autoincrement=True
+    )
+    token: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id"), nullable=False, unique=True
+    )
+    expires_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False
+    )
+
+    def __repr__(self):
+        return f"UserSessionToken(user_id={self.user_id})"
+
+
 post_tag_m2m_table = Table(
     "post_tag",
     Base.metadata,

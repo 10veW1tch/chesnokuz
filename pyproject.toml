@@ -9,8 +9,8 @@ dependencies = [
     "argon2-cffi>=25.1.0",
     "fastapi[standard]>=0.128.0",
     "passlib[argon2]",
-    "psycopg2-binary",
     "psycopg2-binary>=2.9.11",
+    "pydantic-settings>=2.11.0",
     "python-dotenv>=1.2.1",
     "sqlalchemy>=2.0.46",
 ]

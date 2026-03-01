@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import AliasChoices, BaseModel, EmailStr, Field
 
 
 class UserRegisterRequest(BaseModel):
@@ -41,3 +41,16 @@ class UserProfileUpdateRequest(BaseModel):
     last_name: str | None = None
     profession_id: int | None = None
     bio: str | None = None
+
+
+class UserLoginRequest(BaseModel):
+    email: EmailStr = Field(validation_alias=AliasChoices("email", "username"))
+    password: str
+
+    model_config = {
+        "extra": "ignore",
+    }
+
+
+class RefreshTokenRequest(BaseModel):
+    refresh_token: str

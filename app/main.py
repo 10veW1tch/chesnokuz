@@ -13,7 +13,7 @@ from app.routers import (
 
 
 app = FastAPI(
-    title="Chesnokdek achchiq yangiliklar",
+    title="Chesnokdek yangiliklar",
     description="Chesnokuz - news website inspired from Qalampir.uz, built in FastAPI",
 )
 

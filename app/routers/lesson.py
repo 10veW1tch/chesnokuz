@@ -54,16 +54,3 @@ async def protected_admin(
 
     return user
 
-
-"""
-password = A
-secret_key = x
-salt = c
-hashed_password = B
-
-Ax + random() * c = B
-
-1. Symmetric (2 taraflama) password => B/x = A
-2. Asymmetric (1 taraflama) password => B/x != A
-    > Ax + random() * c == B
-"""
